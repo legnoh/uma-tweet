@@ -29,6 +29,8 @@ jobs:
           export TWITTER_STATUS=$(echo ${MESSAGE};echo ${UPDATE};echo ${URL})
       - name: update
         uses: ethomson/send-tweet-action@v1
+        env:
+          TWITTER_STATUS: ${{ env.TWITTER_STATUS }}
         with:
           consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
