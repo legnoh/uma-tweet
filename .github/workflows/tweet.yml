@@ -31,7 +31,7 @@ jobs:
           echo "${MESSAGE}" > message.txt
           echo "${UPDATE} 更新" >> message.txt
           echo "${URL}" >> message.txt
-          echo "TWITTER_STATUS<<EOF >> ${GITHUB_ENV}
+          echo "TWITTER_STATUS<<EOF" >> ${GITHUB_ENV}
           echo "$(cat message.txt)" >> ${GITHUB_ENV}
           echo "EOF" >> ${GITHUB_ENV}
           cat message.txt
