@@ -29,6 +29,7 @@ jobs:
           TWITTER_MESSAGE=$(echo ${MESSAGE};echo ${UPDATE};echo ${URL})
           echo $TWITTER_MESSAGE > message.txt
           echo "TWITTER_STATUS=$(cat message.txt)" >> ${GITHUB_ENV}
+          cat message.txt
       - name: update
         uses: ethomson/send-tweet-action@v1
         with:
