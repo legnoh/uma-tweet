@@ -26,8 +26,9 @@ jobs:
           URL: https://twitter.com/legnbot/status/1429076121144807428/photo/1
         run: |
           export UPDATE="$(date +%Y/%m/%d) 更新"
-          export TWITTER_STATUS=$(echo ${MESSAGE};echo ${UPDATE};echo ${URL})
-          echo "TWITTER_STATUS=$(echo ${TWITTER_STATUS})" >> ${GITHUB_ENV}
+          TWITTER_MESSAGE=$(echo ${MESSAGE};echo ${UPDATE};echo ${URL})
+          echo $TWITTER_MESSAGE > message.txt
+          echo "TWITTER_STATUS=$(cat message.txt)" >> ${GITHUB_ENV}
       - name: update
         uses: ethomson/send-tweet-action@v1
         with:
