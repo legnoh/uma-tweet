@@ -25,9 +25,9 @@ jobs:
             よろしくお願いします🧲
           URL: https://twitter.com/legnbot/status/1429076121144807428/photo/1
         run: |
-          export UPDATE="$(date '+%Y/%m/%d %H:%M') 更新"
+          export UPDATE=$(date '+%Y/%m/%d %H:%M')
           echo ${MESSAGE} > message.txt
-          echo ${UPDATE} >> message.txt
+          echo "${UPDATE} 更新" >> message.txt
           echo ${URL} >> message.txt
           echo "TWITTER_STATUS=$(cat message.txt)" >> ${GITHUB_ENV}
           cat message.txt
